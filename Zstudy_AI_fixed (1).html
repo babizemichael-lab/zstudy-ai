@@ -1,0 +1,261 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Zstudy AI — Homework & Study Assistant</title><script src="https://accounts.google.com/gsi/client" async defer></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script><script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script><script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script><style>
+:root{--bg:#f5f7fb;--p:#fff;--p2:#eef2f8;--t:#182033;--m:#69758b;--l:#dde4ef;--b:#635bff;--g:#16a36a;--r:18px}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 0,#756bff22,transparent 30%),var(--bg);color:var(--t);font:15px system-ui,-apple-system,Segoe UI,sans-serif}body.dark{--bg:#0b1020;--p:#12192b;--p2:#192238;--t:#eef2ff;--m:#9aa5bd;--l:#29354d}.app{display:flex;min-height:100vh}.side{width:245px;background:var(--p);border-right:1px solid var(--l);padding:20px 14px;position:sticky;top:0;height:100vh}.brand{font-size:21px;font-weight:850;padding:8px 10px 25px}.logo{display:inline-grid;place-items:center;width:37px;height:37px;border-radius:12px;background:linear-gradient(135deg,var(--b),#a66cff);color:#fff;margin-right:8px}.nav{display:grid;gap:6px}.nav button,.sideBtn{border:0;background:transparent;color:var(--m);padding:12px;border-radius:12px;text-align:left;font-weight:600}.nav button.active,.nav button:hover,.sideBtn:hover{background:var(--p2);color:var(--t)}.sideBottom{position:absolute;bottom:15px;left:14px;right:14px;display:grid;gap:7px}.main{flex:1;min-width:0}.top{height:64px;border-bottom:1px solid var(--l);display:flex;align-items:center;justify-content:space-between;padding:0 25px;position:sticky;top:0;background:#ffffffdd;backdrop-filter:blur(15px);z-index:5}.dark .top{background:#0b1020dd}.page{max-width:1180px;margin:auto;padding:32px 25px 80px}.view{display:none}.view.active{display:block}.hero{display:flex;justify-content:space-between;gap:25px;margin-bottom:25px}.hero h1{font-size:clamp(30px,5vw,50px);line-height:1.04;letter-spacing:-.04em;margin:7px 0}.hero p,.muted{color:var(--m)}.eyebrow{color:var(--b);font-weight:800;text-transform:uppercase;font-size:12px;letter-spacing:.1em}.grid{display:grid;gap:14px}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.card{background:var(--p);border:1px solid var(--l);border-radius:var(--r);padding:19px;box-shadow:0 16px 50px #1720330d}.action{text-align:left;min-height:135px;transition:.2s}.action:hover{transform:translateY(-3px);box-shadow:0 20px 50px #635bff19}.action b{display:block;margin-top:15px}.action span{display:block;color:var(--m);margin-top:5px;font-size:13px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.stat b{font-size:26px;display:block}.stat span{font-size:12px;color:var(--m)}button,input,textarea,select{font:inherit}button{cursor:pointer}input,textarea,select{width:100%;background:var(--p2);color:var(--t);border:1px solid var(--l);border-radius:13px;padding:12px;outline:0}textarea{resize:vertical}input:focus,textarea:focus,select:focus{border-color:var(--b);box-shadow:0 0 0 3px #635bff18}.primary{border:0;background:linear-gradient(135deg,var(--b),#897cff);color:#fff;padding:12px 16px;border-radius:12px;font-weight:800}.secondary,.pill,.icon{border:1px solid var(--l);background:var(--p2);color:var(--t);padding:10px 13px;border-radius:12px}.toolbar{display:flex;gap:8px;flex-wrap:wrap}.chat{min-height:52vh;display:flex;flex-direction:column;gap:12px}.msg{max-width:86%;padding:14px 16px;border-radius:17px;line-height:1.58}.msg.user{margin-left:auto;background:linear-gradient(135deg,var(--b),#897cff);color:white}.msg.ai{background:var(--p2);border:1px solid var(--l)}.composer{margin-top:14px;background:var(--p);border:1px solid var(--l);border-radius:18px;padding:10px}.composer textarea{border:0;background:transparent;min-height:70px}.row{display:flex;align-items:center;gap:9px}.space{justify-content:space-between}.drop{border:2px dashed var(--l);border-radius:17px;padding:30px;text-align:center;background:var(--p2);transition:.2s}.drop.drag{border-color:var(--b);background:#635bff12}.answer{width:100%;text-align:left;border:1px solid var(--l);background:var(--p2);color:var(--t);padding:14px;border-radius:12px}.answer.correct{border-color:var(--g);background:#16a36a14}.answer.wrong{border-color:#e05252;background:#e0525214}.answers{display:grid;gap:8px}.flash{height:320px;perspective:1000px;margin:20px auto;max-width:650px}.flashin{height:100%;position:relative;transform-style:preserve-3d;transition:.5s}.flash.flip .flashin{transform:rotateY(180deg)}.face{position:absolute;inset:0;backface-visibility:hidden;border:1px solid var(--l);border-radius:24px;background:var(--p);display:grid;place-items:center;text-align:center;padding:35px;font-size:24px;font-weight:750;box-shadow:0 18px 60px #17203315}.back{transform:rotateY(180deg);font-size:19px;font-weight:500}.empty{text-align:center;color:var(--m);padding:35px}.modal{display:none;position:fixed;inset:0;background:#0008;place-items:center;padding:20px;z-index:20}.modal.show{display:grid}.modalBox{background:var(--p);border:1px solid var(--l);border-radius:20px;padding:23px;max-width:530px;width:100%}.toast{position:fixed;right:18px;bottom:18px;background:#151b2a;color:white;padding:12px 15px;border-radius:12px;opacity:0;transform:translateY(8px);transition:.2s;z-index:50}.toast.show{opacity:1;transform:none}.progress{height:8px;background:var(--p2);border-radius:99px;overflow:hidden}.progress i{display:block;height:100%;background:var(--b)}.mobile{display:none}.ghero{max-width:900px;margin:20px auto 34px;text-align:center}.ghero h1{font-size:clamp(38px,6vw,66px);letter-spacing:-.055em;margin:8px 0 12px}.askbox{max-width:900px;margin:auto;background:var(--p);border:1px solid var(--l);border-radius:24px;padding:12px;box-shadow:0 25px 80px #17203312}.askbox textarea{min-height:105px;font-size:17px;background:transparent;border:0}.asktools{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.subject{width:auto;min-width:145px}.subjectTag{padding:8px 11px;border-radius:999px;background:var(--p2);border:1px solid var(--l);font-size:12px}.featureRow{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:16px auto 30px}.drop.small{padding:18px}@media(max-width:850px){.side{position:fixed;left:-260px;z-index:10;transition:.25s}.side.open{left:0}.mobile{display:block}.g2,.g3,.stats{grid-template-columns:1fr}.hero{display:block}.top{padding:0 15px}.page{padding:25px 15px}.msg{max-width:95%}}
+</style></head><body><div class="app"><aside class="side" id="side"><div class="brand"><span class="logo">✦</span>Zstudy AI</div><nav class="nav"><button class="active" data-v="home">⌂ Dashboard</button><button data-v="tutor">◈ AI Tutor</button><button data-v="quiz">◉ Quizzer</button><button data-v="cards">▣ Flashcards</button><button data-v="notes">✎ My Notes</button><button data-v="history">◷ History</button></nav><div class="sideBottom"><button class="sideBtn" id="theme">☾ Dark mode</button><button class="sideBtn" id="setup">⚙ AI / Account setup</button></div></aside><main class="main"><header class="top"><button class="icon mobile" id="menu">☰</button><span class="muted" id="crumb">Dashboard</span><span class="pill" id="status">Local mode</span></header><div class="page">
+<section id="home" class="view active"><div class="ghero"><div class="eyebrow">Zstudy AI</div><h1>Your homework.<br><span style="color:var(--b)">Solved and understood.</span></h1><p>Type a question, upload a photo, or paste your notes. Zstudy AI turns it into a clear solution and explanation.</p></div><div class="askbox"><textarea id="homeQuestion" placeholder="What are you stuck on?  e.g. Solve 3x + 7 = 22"></textarea><div class="asktools"><label class="secondary">📷 Photo<input id="homePhoto" type="file" hidden accept="image/*" capture="environment"></label><label class="secondary">📎 Upload<input id="homeFile" type="file" hidden accept="image/*,.txt,.md,.pdf"></label><select id="homeSubject" class="subject"><option>Auto detect</option><option>Math</option><option>Physics</option><option>Chemistry</option><option>Biology</option><option>English</option><option>History</option><option>Geography</option><option>Other</option></select><span style="flex:1"></span><button class="primary" id="homeAsk">Solve →</button></div></div><div class="featureRow"><span class="subjectTag">✓ Step-by-step</span><span class="subjectTag">✓ Explain simply</span><span class="subjectTag">✓ Photo questions</span><span class="subjectTag">✓ Quiz from notes</span></div><div class="stats"><div class="card stat"><b id="solved">0</b><span>Questions solved</span></div><div class="card stat"><b id="done">0</b><span>Quizzes completed</span></div><div class="card stat"><b id="acc">—</b><span>Quiz accuracy</span></div><div class="card stat"><b id="cardCount">0</b><span>Flashcards</span></div></div><h3>Study tools</h3><div class="grid g3"><button class="card action" onclick="show('tutor')">🧠<b>AI Tutor</b><span>Ask follow-up questions and learn step by step.</span></button><button class="card action" onclick="show('quiz')">⚡<b>Quizzer</b><span>Turn an entire note into varied practice.</span></button><button class="card action" onclick="show('cards')">🃏<b>Flashcards</b><span>Review the facts you actually studied.</span></button><button class="card action" onclick="show('notes')">📚<b>My Notes</b><span>Keep your study material in one place.</span></button><button class="card action" onclick="openSetup()">🔐<b>Google account</b><span>Sign in and keep your Zstudy profile.</span></button><button class="card action" onclick="show('history')">📈<b>Progress</b><span>See your recent study activity.</span></button></div><h3>Recent activity</h3><div class="card" id="recent"></div></section><section id="tutor" class="view"><div class="hero"><div><div class="eyebrow">Homework Solver</div><h1>Let's solve it.</h1><p>Type it, paste it, or upload a photo. Choose how you want the answer explained.</p></div></div><div class="toolbar"><button class="pill tm" data-m="solve">Solve</button><button class="pill tm" data-m="teach">Teach Me</button><button class="pill tm" data-m="hint">Hint</button><button class="pill tm" data-m="check">Check My Answer</button></div><div class="card chat" id="chat"><div class="msg ai"><b>Zstudy AI</b><br>Give me the actual question. I'll solve it, show the work, and explain why each step works.</div></div><div class="askbox" style="margin-top:14px"><textarea id="question" placeholder="Type your homework question here..."></textarea><div class="asktools"><label class="secondary">📎 Upload<input id="files" type="file" multiple hidden accept="image/*,.txt,.md,.pdf,.doc,.docx"></label><label class="secondary">📷 Camera<input id="camera" type="file" hidden accept="image/*" capture="environment"></label><select id="localModelSelect" class="subject" title="Choose the local language model"><option value="Llama-3.2-1B-Instruct-q4f16_1-MLC">Fast • 1B</option><option value="Llama-3.2-3B-Instruct-q4f16_1-MLC" selected>Balanced • 3B</option><option value="Llama-3.1-8B-Instruct-q4f16_1-MLC">Strong • 8B</option></select><button class="secondary" id="loadLocalAI" title="Runs a real language model in your browser; no AI API key">⚡ Load Local AI</button><span style="flex:1"></span><button class="primary" id="ask">Solve →</button></div></div><div class="card" style="margin-top:14px"><div class="drop small" id="drop"><b>Drop a homework photo here</b><br><span class="muted">Zstudy will OCR the image and put the detected question into the solver.</span></div><div class="row space mt"><span class="pill" id="localAIStatus">Local AI: not loaded</span><span class="muted" id="localAIProgress"></span></div><div id="fileinfo"></div></div></section><section id="quiz" class="view"><div class="hero"><div><div class="eyebrow">Quizzer</div><h1>Turn studying into practice.</h1><p>Paste notes or a topic and generate an interactive quiz.</p></div></div><div class="grid g2"><div class="card"><b>Study material</b><textarea id="source" rows="15" placeholder="Photosynthesis is the process by which plants use light energy to make chemical energy..."></textarea></div><div class="card"><b>Settings</b><div class="grid" style="margin-top:14px"><label>Questions<select id="count"><option>5</option><option>10</option><option>20</option></select></label><label>Difficulty<select id="difficulty"><option>Easy</option><option selected>Medium</option><option>Hard</option><option>Expert</option></select></label><label>Type<select id="type"><option value="mixed">Mixed</option><option value="mcq">Multiple Choice</option><option value="tf">True / False</option><option value="short">Short Answer</option><option value="fill">Fill in the Blank</option></select></label><button class="primary" id="make">Create Quiz ✦</button></div></div></div><div id="quizArea" style="margin-top:14px"></div></section>
+<section id="cards" class="view"><div class="hero"><div><div class="eyebrow">Flashcards</div><h1>Remember what matters.</h1><p>Generate cards from notes and review them interactively.</p></div><button class="primary" id="genCards">Generate cards</button></div><div class="card"><textarea id="cardSource" rows="7" placeholder="Paste study notes here..."></textarea></div><div id="flashArea"></div></section>
+<section id="notes" class="view"><div class="hero"><div><div class="eyebrow">My Notes</div><h1>Your study library.</h1><p>Notes are stored locally in this browser.</p></div></div><div class="grid g2"><div class="card"><input id="noteTitle" placeholder="Note title"><textarea id="noteBody" rows="17" placeholder="Write or paste notes..."></textarea><div class="toolbar" style="margin-top:10px"><button class="primary" id="saveNote">Save note</button><button class="secondary" id="noteQuiz">Create Quiz</button><button class="secondary" id="noteCards">Flashcards</button></div></div><div class="card"><input id="noteSearch" placeholder="Search notes"><div id="noteList" style="margin-top:10px"></div></div></div></section>
+<section id="history" class="view"><div class="hero"><div><div class="eyebrow">Progress</div><h1>Your learning history.</h1><p>Local activity from this browser.</p></div></div><div class="card" id="historyList"></div></section>
+</div></main></div><div class="toast" id="toast"></div><div class="modal" id="modal"><div class="modalBox"><div class="row space"><h2>Zstudy AI setup</h2><button class="iconBtn" onclick="closeModal()">×</button></div>
+<p class="muted">Connect your real Google account and your secure AI endpoint. Google’s client ID is safe to place in browser code; private OAuth secrets and AI API keys are not.</p>
+
+<div class="card" style="box-shadow:none;background:var(--panel2);margin-bottom:14px">
+  <div class="row space"><div><b>Google account</b><div class="muted" id="googleStatus">Not signed in</div></div><button class="secondary" id="googleSignOut" onclick="googleSignOut()" style="display:none">Sign out</button></div>
+  <button class="secondary mt" id="googleLaunch" type="button">Continue with Google</button><div id="googleButton" class="mt"></div>
+  <div id="googleSetupHint" class="muted mt" style="font-size:12px">Enter your Google OAuth Web Client ID below. For real Google authentication, open this file from localhost or an HTTPS site and authorize that origin in Google Cloud.</div>
+</div>
+
+<label>Google OAuth Web Client ID<input id="googleClientId" placeholder="1234567890-abcdefg.apps.googleusercontent.com"></label>
+<div class="toolbar mt"><button class="primary" onclick="saveGoogleConfig()">Save Google configuration</button><button class="secondary" onclick="initGoogle()">Initialize Google</button></div>
+
+<label class="mt">Secure AI endpoint<input id="endpoint" placeholder="https://your-domain.com/api/ai"></label>
+<label class="mt">Display name<input id="displayName" placeholder="Student"></label>
+<div class="toolbar mt"><button class="primary" onclick="saveSetup()">Save</button><button class="secondary" onclick="testEndpoint()">Test endpoint</button></div>
+<hr style="border:0;border-top:1px solid var(--line);margin:22px 0">
+<p><b>Security note</b><br><span class="muted">The browser receives a Google ID token after sign-in. A production backend should verify that token with Google/Firebase before trusting the user's identity or saving private cloud data. Do not put an OpenAI, Gemini, Anthropic, or Google service-account secret in this HTML file.</span></p>
+</div></div>
+<script>
+const K='zstudyai_onefile_v3';let D=JSON.parse(localStorage.getItem(K)||'{"theme":"light","name":"Student","endpoint":"","googleClientId":"","googleUser":null,"solved":0,"done":0,"correct":0,"answered":0,"notes":[],"history":[],"cards":[]}');D.googleClientId=D.googleClientId||'';D.googleUser=D.googleUser||null;const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);let tutorMode='solve',quiz={items:[],i:0,score:0},cardI=0;
+function save(){localStorage.setItem(K,JSON.stringify(D));render()}function toast(x){let e=$('#toast');e.textContent=x;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),2200)}function show(id){$$('.view').forEach(x=>x.classList.remove('active'));$('#'+id).classList.add('active');$$('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.v===id));$('#crumb').textContent=id[0].toUpperCase()+id.slice(1);$('#side').classList.remove('open')}$$('.nav button').forEach(b=>b.onclick=()=>show(b.dataset.v));$('#menu').onclick=()=>$('#side').classList.toggle('open');$('#theme').onclick=()=>{D.theme=D.theme==='dark'?'light':'dark';save()};
+function md(x){return DOMPurify.sanitize(marked.parse(x||''))}function esc(x){return String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}function hist(t,x){D.history.unshift({t,x,time:new Date().toLocaleString()});D.history=D.history.slice(0,50);save()}
+$$('.tm').forEach(b=>b.onclick=()=>{tutorMode=b.dataset.m;$$('.tm').forEach(x=>x.style.fontWeight=x===b?'800':'400');toast('Mode: '+b.textContent)});$('#loadLocalAI').onclick=loadLocalAI;$('#localModelSelect').onchange=()=>{localModel=$('#localModelSelect').value;localStorage.setItem('zstudyai_local_model',localModel);if(localEngine){localEngine=null;localChat=[];$('#localAIStatus').textContent='Local AI: model changed — load again';$('#localAIProgress').textContent='Choose Load Local AI to download/start the new model.';toast('Model changed. Load the new model.')}};$('#ask').onclick=ask;$('#question').onkeydown=e=>{if(e.key==='Enter'&&(e.ctrlKey||e.metaKey)){e.preventDefault();ask()}};
+function msg(w,x){let e=document.createElement('div');e.className='msg '+w;e.innerHTML=w==='user'?esc(x):x;$('#chat').appendChild(e);e.scrollIntoView({behavior:'smooth'})}
+function cleanMath(s){return s.replace(/[×·]/g,'*').replace(/÷/g,'/').replace(/[−–—]/g,'-').replace(/π/g,'pi').replace(/\s+/g,'').replace(/,/g,'')}
+function tokenizeMath(s){s=cleanMath(s).replace(/sqrt/gi,'√');let raw=[],i=0;while(i<s.length){let c=s[i];if(/[0-9.]/.test(c)){let j=i+1;while(j<s.length&&/[0-9.]/.test(s[j]))j++;raw.push({t:'num',v:Number(s.slice(i,j))});i=j;continue}if(c.toLowerCase()==='x'||c.toLowerCase()==='y'){raw.push({t:'var',v:c.toLowerCase()});i++;continue}if(c==='π'||c.toLowerCase()==='p'&&s.slice(i,i+2).toLowerCase()==='pi'){raw.push({t:'num',v:Math.PI});i+=c==='π'?1:2;continue}if(c==='√'){raw.push({t:'sqrt'});i++;continue}if('+-*/^()'.includes(c)){raw.push({t:c});i++;continue}return null}let out=[];for(let j=0;j<raw.length;j++){let a=raw[j-1]?.t,b=raw[j].t;if(j&&((a==='num'||a==='var'||a===')')&&(b==='num'||b==='var'||b==='('||b==='sqrt')))out.push({t:'*'});out.push(raw[j])}return out}
+function polyAdd(a,b,sgn=1){let n=Math.max(a.length,b.length),r=Array(n).fill(0);for(let i=0;i<n;i++)r[i]=(a[i]||0)+sgn*(b[i]||0);while(r.length>1&&Math.abs(r[r.length-1])<1e-10)r.pop();return r}
+function polyMul(a,b){let r=Array(a.length+b.length-1).fill(0);for(let i=0;i<a.length;i++)for(let j=0;j<b.length;j++)r[i+j]+=a[i]*b[j];while(r.length>1&&Math.abs(r[r.length-1])<1e-10)r.pop();return r}
+function polyScale(a,k){return a.map(v=>v*k)}
+function parsePolynomial(s){let ts=tokenizeMath(s);if(!ts)return null;let p=0;const peek=()=>ts[p]?.t;const primary=()=>{if(peek()==='+'||peek()==='-'){let sg=peek()==='-'?-1:1;p++;return polyScale(primary(),sg)}if(peek()==='num'){let v=ts[p++].v;return [v]}if(peek()==='var'){let v=ts[p++].v;return v==='x'?[0,1]:null}if(peek()==='sqrt'){p++;if(peek()==='('){p++;let z=expr();if(z.length!==1||z[0]<0)throw Error();if(peek()!==')')throw Error();p++;return [Math.sqrt(z[0])]}throw Error()}if(peek()==='('){p++;let z=expr();if(peek()!==')')throw Error();p++;return z}throw Error()};const power=()=>{let a=primary();while(peek()==='^'){p++;if(ts[p]?.t!=='num')throw Error();let n=ts[p++].v;if(!Number.isInteger(n)||n<0||n>4)throw Error();let r=[1];for(let i=0;i<n;i++)r=polyMul(r,a);a=r}return a};const term=()=>{let a=power();while(peek()==='*'||peek()==='/'){let op=ts[p++].t,b=power();if(op==='*')a=polyMul(a,b);else{if(b.length!==1||b[0]===0)throw Error();a=polyScale(a,1/b[0])}}return a};const expr=()=>{let a=term();while(peek()==='+'||peek()==='-'){let op=ts[p++].t,b=term();a=polyAdd(a,b,op==='+'?1:-1)}return a};try{let r=expr();if(p!==ts.length)return null;return r}catch{return null}}
+function fmtNum(n){if(Math.abs(n)<1e-10)n=0;return Number.isInteger(n)?String(n):String(Number(n.toFixed(8)))}
+function solveEquation(q){let s=cleanMath(q).replace(/\?+$/,'').replace(/^.*?(?:solve|find|calculate|solveforx)[:\s]*/i,'');let parts=s.split('=');if(parts.length!==2)return null;let L=parsePolynomial(parts[0]),R=parsePolynomial(parts[1]);if(!L||!R)return null;let P=polyAdd(L,R,-1),a=P[1]||0,b=P[0]||0,c=P[2]||0;if(Math.abs(c)<1e-10&&Math.abs(a)>1e-10)return {kind:'linear',x:-b/a,a,b,c};if(Math.abs(c)>1e-10){let disc=a*a-4*c*b;if(disc<0)return {kind:'quadratic',complex:true,a,b,c};let r=Math.sqrt(disc);return {kind:'quadratic',x1:(-a+r)/(2*c),x2:(-a-r)/(2*c),a,b,c}}return Math.abs(b)<1e-10?{kind:'identity'}:null}
+function solveRatio(q){let s=cleanMath(q).replace(/^.*?(?:solve|find|calculate)[:\s]*/i,'');let m=s.match(/(\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)=x\/(\d+(?:\.\d+)?)/i);if(m)return {x:+m[1]*+m[3]/+m[2]};m=s.match(/x\/(\d+(?:\.\d+)?)=(\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)/i);if(m)return {x:+m[2]*+m[1]/+m[3]};return null}
+function evalArithmetic(q){let s=cleanMath(q).replace(/^.*?(?:calculate|evaluate|what is)[:\s]*/i,'').replace(/\?$/,'');if(/[a-oq-wyz]/i.test(s)||s.includes('='))return null;let p=parsePolynomial(s);return p&&p.length===1?p[0]:null}
+function solveAbsoluteValue(q){
+ let s=q.replace(/[−–—]/g,'-').replace(/\s+/g,'').replace(/≤/g,'<=').replace(/≥/g,'>=');
+ // |ax+b| = k
+ let m=s.match(/^\|([^|]+)\|=([+-]?(?:\d+(?:\.\d+)?))$/i);
+ if(m){
+   let p=parsePolynomial(m[1]),k=Number(m[2]);
+   if(!p||p.length>2)return null;
+   let a=p[1]||0,b=p[0]||0;
+   if(Math.abs(a)<1e-12)return {kind:'absolute-constant',value:Math.abs(b)===Math.abs(k)};
+   if(k<0)return {kind:'absolute-none',reason:'An absolute value cannot equal a negative number.'};
+   return {kind:'absolute',a,b,k,roots:[(k-b)/a,(-k-b)/a]};
+ }
+ // |ax+b| = |cx+d| -> ax+b = cx+d OR ax+b = -(cx+d)
+ m=s.match(/^\|([^|]+)\|=\|([^|]+)\|$/i);
+ if(m){
+   let p=parsePolynomial(m[1]),r=parsePolynomial(m[2]);
+   if(!p||!r||p.length>2||r.length>2)return null;
+   let a=(p[1]||0)-(r[1]||0),b=(p[0]||0)-(r[0]||0);
+   let c=(p[1]||0)+(r[1]||0),d=(p[0]||0)+(r[0]||0),roots=[];
+   if(Math.abs(a)>1e-12)roots.push(-b/a);
+   else if(Math.abs(b)<1e-12)roots.push('all');
+   if(Math.abs(c)>1e-12)roots.push(-d/c);
+   else if(Math.abs(d)<1e-12)roots.push('all');
+   roots=[...new Set(roots)];
+   return {kind:'absolute-equal',left:m[1],right:m[2],roots};
+ }
+ // |expression| <, <=, >, >= constant for linear expressions
+ m=s.match(/^\|([^|]+)\|(<=|>=|<|>)([+-]?(?:\d+(?:\.\d+)?))$/i);
+ if(m){
+   let p=parsePolynomial(m[1]),k=Number(m[3]); if(!p||p.length>2)return null;
+   let a=p[1]||0,b=p[0]||0; if(Math.abs(a)<1e-12)return {kind:'absolute-inequality-constant',ok:eval('Math.abs('+b+')'+m[2]+k)};
+   if(k<0)return {kind:'absolute-inequality-none'};
+   return {kind:'absolute-inequality',a,b,k,op:m[2]};
+ }
+ return null;
+}
+function absIneqText(r){
+ let lo=(-r.k-r.b)/r.a,hi=(r.k-r.b)/r.a;if(lo>hi){let t=lo;lo=hi;hi=t}
+ let l=r.op==='<'?'':'[' , rr=r.op==='<'?'':']';
+ if(r.op==='>'||r.op==='>=')return `**x < ${fmtNum(lo)} or x ${r.op==='>'?'>':'>='} ${fmtNum(hi)}**`;
+ return `**${l}x ${r.op==='<'?'between':'in'} ${fmtNum(lo)} and ${fmtNum(hi)}${rr}**`;
+}
+function offlineTutor(q){
+ let av=solveAbsoluteValue(q);if(av){
+   if(av.kind==='absolute-none')return '## Absolute value\n\n'+av.reason+'\n\n**No solution.**';
+   if(av.kind==='absolute-constant')return av.value?'## Absolute value\n\nBoth sides are the same constant.\n\n**Every real x satisfies this equation.**':'## Absolute value\n\nThe constant values do not match.\n\n**No solution.**';
+   if(av.kind==='absolute')return `## Absolute-value equation\n\nWe have **|${av.a===1?'':fmtNum(av.a)}x ${av.b>=0?'+ '+fmtNum(av.b):'- '+fmtNum(Math.abs(av.b))}| = ${fmtNum(av.k)}**.\n\nAn absolute value equals ${fmtNum(av.k)} when the inside is either **${fmtNum(av.k)}** or **-${fmtNum(av.k)}**.\n\n### Case 1\n${fmtNum(av.a)}x ${av.b>=0?'+ '+fmtNum(av.b):'- '+fmtNum(Math.abs(av.b))} = ${fmtNum(av.k)}\n\n### Case 2\n${fmtNum(av.a)}x ${av.b>=0?'+ '+fmtNum(av.b):'- '+fmtNum(Math.abs(av.b))} = -${fmtNum(av.k)}\n\n### Answer\n**x = ${fmtNum(av.roots[0])} or x = ${fmtNum(av.roots[1])}**\n\nCheck both values in the original absolute-value equation.`;
+   if(av.kind==='absolute-equal')return `## Absolute-value equation\n\nFor **|${av.left}| = |${av.right}|**, solve two cases:\n\n1. **${av.left} = ${av.right}**\n2. **${av.left} = -(${av.right})**\n\n### Answer\n${av.roots.includes('all')?'The equation has an identity case plus the other case.':'**x = '+av.roots.map(fmtNum).join(' or x = ')+'**'}\n\nCheck the solutions in the original equation.`;
+   if(av.kind==='absolute-inequality-none')return '## Absolute-value inequality\n\nAn absolute value is never negative.\n\n**No solution.**';
+   if(av.kind==='absolute-inequality')return `## Absolute-value inequality\n\nFor a linear expression, **|expression| ${av.op} ${fmtNum(av.k)}** is solved by locating the two boundary points.\n\nThe boundary values are **x = ${fmtNum((-av.k-av.b)/av.a)}** and **x = ${fmtNum((av.k-av.b)/av.a)}**.\n\n### Solution\n${absIneqText(av)}`;
+ }
+ let eq=solveEquation(q);if(eq){if(tutorMode==='hint')return '**Hint:** Collect the x terms, move constants to the other side, then divide by the x coefficient.';if(eq.kind==='identity')return '## Answer\n\n**Infinitely many solutions.** Both sides simplify to the same expression.';if(eq.kind==='linear')return '## Step-by-step solution\n\n1. Simplify both sides.\n2. Collect the x terms on one side.\n3. Move constants to the other side.\n4. Divide by the coefficient of x.\n\n**x = '+fmtNum(eq.x)+'**\n\n### Check\nSubstitute x = '+fmtNum(eq.x)+' into the original equation to verify both sides match.';if(eq.complex)return '## Quadratic equation\n\nThe discriminant is negative, so there are **no real solutions**.';return '## Quadratic solution\n\nFor '+fmtNum(eq.c)+'x² + '+fmtNum(eq.a)+'x + '+fmtNum(eq.b)+' = 0:\n\n**x₁ = '+fmtNum(eq.x1)+'**\n\n**x₂ = '+fmtNum(eq.x2)+'**\n\nUsing the quadratic formula: x = (−b ± √(b²−4ac))/(2a).'}
+ let ratio=solveRatio(q);if(ratio)return '## Proportion\n\nCross-multiply and divide:\n\n**x = '+fmtNum(ratio.x)+'**.';
+ let ar=evalArithmetic(q);if(ar!==null)return '## Answer\n\n**'+fmtNum(ar)+'**\n\nI evaluated the expression using order of operations.';
+ let pct=q.match(/([0-9.]+)%\s*(?:of)\s*([0-9.]+)/i);if(pct){let a=+pct[1],b=+pct[2],v=a*b/100;return '## Percentage\n\n'+a+'% of '+b+' = **'+fmtNum(v)+'**.\n\nCalculation: '+a+'/100 × '+b+' = '+fmtNum(v)+'.'}
+ let pct2=q.match(/([0-9.]+)\s*(?:is|equals)\s*what\s*percent\s*of\s*([0-9.]+)/i);if(pct2){let v=+pct2[1],b=+pct2[2],r=v/b*100;return '## Percentage\n\n'+v+' is **'+fmtNum(r)+'%** of '+b+'.'}
+ let rect=q.match(/(?:rectangle|rectangular).*?(?:length|l)\s*(?:=|of)?\s*([0-9.]+).*?(?:width|w)\s*(?:=|of)?\s*([0-9.]+)/i);if(rect){let l=+rect[1],w=+rect[2];return /perimeter/i.test(q)?'## Rectangle perimeter\n\nP = 2(l+w) = **'+fmtNum(2*(l+w))+'**.':'## Rectangle area\n\nA = l×w = **'+fmtNum(l*w)+'**.'}
+ let circle=q.match(/(?:circle).*?(?:radius|r)\s*(?:=|of)?\s*([0-9.]+)/i);if(circle){let r=+circle[1];return /circumference/i.test(q)?'## Circle circumference\n\nC = 2πr = **'+fmtNum(2*Math.PI*r)+'**.':'## Circle area\n\nA = πr² = **'+fmtNum(Math.PI*r*r)+'**.'}
+ let phys=q.match(/(?:force|f)\s*=\s*(?:mass|m)\s*\*?\s*(?:acceleration|a)|mass\s*([0-9.]+).*?(?:acceleration|a)\s*([0-9.]+)/i);if(phys&&phys[1]&&phys[2])return '## Newton’s second law\n\nF = ma = '+phys[1]+' × '+phys[2]+' = **'+fmtNum(+phys[1]*+phys[2])+' N**.';
+ let speed=q.match(/(?:speed|velocity).*?(?:distance|d)\s*([0-9.]+).*?(?:time|t)\s*([0-9.]+)/i);if(speed)return '## Speed\n\nv = d/t = '+speed[1]+'/'+speed[2]+' = **'+fmtNum(+speed[1]/+speed[2])+'**.';
+ let unit=q.match(/([0-9.]+)\s*(km|m|cm|mm|kg|g|mg|l|ml)\s*(?:to|in|=)\s*(km|m|cm|mm|kg|g|mg|l|ml)/i);if(unit){let n=+unit[1],f=unit[2].toLowerCase(),t=unit[3].toLowerCase(),map={km:1000,m:1,cm:.01,mm:.001,kg:1,g:.001,mg:.000001,l:1,ml:.001},grp=x=>/km|m|cm|mm/.test(x)?0:/kg|g|mg/.test(x)?1:2;if(grp(f)===grp(t))return '## Unit conversion\n\n**'+n+' '+f+' = '+fmtNum(n*map[f]/map[t])+' '+t+'**.'}
+ let facts={mitochondria:'Mitochondria are organelles that carry out most cellular aerobic respiration and produce ATP, the cell’s main immediately usable energy currency.',photosynthesis:'Photosynthesis uses light energy to convert carbon dioxide and water into glucose, releasing oxygen; it occurs mainly in chloroplasts.',nucleus:'The nucleus stores most of a eukaryotic cell’s DNA and helps control gene expression.',ribosome:'Ribosomes build proteins by linking amino acids according to information carried by messenger RNA.',ecosystem:'An ecosystem includes living organisms and the nonliving environment interacting in an area.',gravity:'Gravity is the attractive interaction associated with mass; near Earth it accelerates falling objects downward.',newton:'Newton’s second law relates net force, mass, and acceleration: F = ma.'};let key=Object.keys(facts).find(k=>new RegExp('\\b'+k+'\\b','i').test(q));if(key)return '## '+key[0].toUpperCase()+key.slice(1)+'\n\n'+facts[key]+'\n\n**Key idea:** '+(key==='mitochondria'?'mitochondria → cellular respiration → ATP':key==='photosynthesis'?'light + CO₂ + water → glucose + O₂':key==='newton'?'F = ma':'focus on the function described above')+'.';
+ return '## I need a solvable problem\n\nThis offline engine can genuinely solve supported math and science calculations, but it will not pretend to understand an arbitrary essay question without a language model. Try a full problem such as **2(x−2)−5(x−5)=4(x−8)−2(x−2)** or connect an AI endpoint for open-ended questions.'
+}
+let localEngine=null,localEngineLoading=false;
+let localModel=localStorage.getItem('zstudyai_local_model')||'Llama-3.2-3B-Instruct-q4f16_1-MLC';
+let localChat=[];
+const LOCAL_MODELS={
+  fast:'Llama-3.2-1B-Instruct-q4f16_1-MLC',
+  balanced:'Llama-3.2-3B-Instruct-q4f16_1-MLC',
+  strong:'Llama-3.1-8B-Instruct-q4f16_1-MLC'
+};
+function selectedLocalModel(){return $('#localModelSelect')?.value||localModel}
+async function loadLocalAI(){
+ if(localEngine||localEngineLoading){if(localEngine)toast('Local AI is already loaded');return}
+ if(!('gpu' in navigator)){toast('WebGPU is unavailable. Use a current Chrome or Edge.');$('#localAIStatus').textContent='Local AI: WebGPU unavailable';return}
+ localModel=selectedLocalModel();localStorage.setItem('zstudyai_local_model',localModel);
+ localEngineLoading=true;$('#loadLocalAI').disabled=true;$('#localAIStatus').textContent='Local AI: loading '+localModel+'…';$('#localAIProgress').textContent='The first download can be large. Afterward the model is cached in your browser.';
+ try{
+   const webllm=await import('https://esm.run/@mlc-ai/web-llm@0.2.85');
+   localEngine=await webllm.CreateMLCEngine(localModel,{initProgressCallback:p=>{let t=p?.text||'';$('#localAIProgress').textContent=t||'Loading language model…';}});
+   localChat=[];
+   $('#localAIStatus').textContent='Local AI: ready ✓';$('#localAIProgress').textContent='Local language model running in this browser — no AI API key.';toast('Your local AI language model is ready');
+ }catch(err){localEngine=null;$('#localAIStatus').textContent='Local AI: failed to load';$('#localAIProgress').textContent=String(err?.message||err);toast('The local model could not load. Try the Fast model or check WebGPU.');}
+ finally{localEngineLoading=false;$('#loadLocalAI').disabled=false}
+}
+async function localTutor(q){
+ if(!localEngine)return null;
+ const subject=$('#homeSubject')?.value||'Auto detect';
+ const mode=tutorMode==='teach'?'Teach the concept carefully before solving it.':tutorMode==='hint'?'Give a useful hint first and avoid revealing the full answer unless necessary.':tutorMode==='check'?'Check the student’s work carefully, identify mistakes, and show the corrected solution.':'Solve the problem fully and explain each important step.';
+ const system=`You are Zstudy AI, a general-purpose AI language model and expert school tutor. You are the primary brain of this application. Subject: ${subject}. ${mode}
+
+Rules:
+- Answer the actual question, not a generic template.
+- You can handle mathematics, science, English, history, geography, computer science, and general school subjects.
+- For math, calculate carefully and show the algebra. Check the final result when possible.
+- For science, explain the concept and units/reasoning when relevant.
+- For writing or humanities, answer clearly and distinguish facts from interpretation.
+- If the question is missing information, say exactly what is missing instead of inventing it.
+- Do not claim to have browsed the web or seen an image unless the application actually supplied that information.
+- Use Markdown. Put the direct answer near the top, then the explanation.
+- Talk like a patient tutor, not like a search result.`;
+ if(!localChat.length)localChat=[{role:'system',content:system}];
+ else localChat[0]={role:'system',content:system};
+ localChat.push({role:'user',content:q});
+ const messages=[localChat[0],...localChat.slice(-10)];
+ const r=await localEngine.chat.completions.create({messages,temperature:.2,top_p:.9,max_tokens:1200});
+ const answer=r.choices?.[0]?.message?.content?.trim()||null;
+ if(answer)localChat.push({role:'assistant',content:answer});
+ return answer;
+}
+async function ask(){
+ let q=$('#question').value.trim();if(!q)return;
+ msg('user',q);$('#question').value='';D.solved++;save();
+ let e=document.createElement('div');e.className='msg ai';e.innerHTML='<b>Zstudy AI</b><br><span class="muted">Thinking with the local AI language model…</span>';$('#chat').appendChild(e);
+ let answer=null;
+ // Local LLM is deliberately the PRIMARY brain.
+ if(!localEngine&&!localEngineLoading){await loadLocalAI()}
+ if(localEngine){try{answer=await localTutor(q)}catch(err){console.warn('Local AI error:',err);answer=null}}
+ // A configured endpoint is only a secondary fallback.
+ if(!answer&&D.endpoint){try{let r=await fetch(D.endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:q,mode:tutorMode})});if(!r.ok)throw Error();let j=await r.json();answer=j.answer||j.output||j.message||null}catch(err){console.warn('AI endpoint error:',err)}}
+ // Deterministic solver is the last-resort fallback, never the primary AI.
+ if(!answer)answer=offlineTutor(q)+'\n\n> Local AI was unavailable, so Zstudy used its built-in fallback solver for this question.';
+ e.innerHTML='<b>Zstudy AI</b><br>'+md(answer);hist('AI Tutor',q)
+}
+async function ocrImage(file){if(!window.Tesseract){toast('OCR library is still loading');return}toast('Reading the homework photo…');$('#fileinfo').innerHTML='<span class="pill">🔎 Reading '+esc(file.name)+'…</span>';try{const r=await Tesseract.recognize(file,'eng',{logger:m=>{if(m.status==='recognizing text')$('#localAIProgress').textContent='OCR '+Math.round((m.progress||0)*100)+'%'}});const text=(r.data.text||'').trim();if(text){$('#question').value=($('#question').value?'\n':'')+text;$('#fileinfo').innerHTML='<div class="card"><b>Detected question</b><p>'+esc(text.slice(0,1800))+'</p></div>';toast('Question extracted from photo')}else toast('No readable text found in that image')}catch(e){toast('Could not read that image')}}
+function files(fs){[...fs].forEach(f=>{if(f.type.startsWith('image/')){ocrImage(f)}else if(f.type.startsWith('text/')||/\.(txt|md)$/i.test(f.name)){let r=new FileReader();r.onload=()=>{$('#question').value+=($('#question').value?'\n':'')+r.result;toast(f.name+' loaded')};r.readAsText(f)}else{$('#fileinfo').innerHTML+='<div class="pill">✓ '+esc(f.name)+' uploaded</div>';toast(f.name+' is attached; PDF/DOCX text extraction needs a document parser')}})}$('#files').onchange=e=>files(e.target.files);$('#camera').onchange=e=>files(e.target.files);$('#homePhoto').onchange=e=>{let f=e.target.files?.[0];if(f){show('tutor');ocrImage(f)}};$('#homeFile').onchange=e=>{let f=e.target.files?.[0];if(f){show('tutor');files([f])}};let drop=$('#drop');drop.ondragover=e=>{e.preventDefault();drop.classList.add('drag')};drop.ondragleave=()=>drop.classList.remove('drag');drop.ondrop=e=>{e.preventDefault();drop.classList.remove('drag');files(e.dataTransfer.files)};
+function split(s){return s.replace(/\r/g,'').split(/(?<=[.!?])\s+|\n+/).map(x=>x.trim()).filter(x=>x.length>18)}
+function words(s){return (s.toLowerCase().match(/[a-z][a-z0-9-]{3,}/g)||[]).filter(x=>!['this','that','with','from','they','their','there','which','these','those','about','into','than','then','also','have','been','were','when','where','what','because','through','using','used','such'].includes(x))}
+function conceptFacts(text){let facts=[];for(let line of split(text)){let m=line.match(/^\s*([A-Z][\w-]*(?:\s+[A-Z][\w-]*){0,4})\s+(?:is|are|refers to|means|describes|consists of|contains|has)\s+(.{8,})$/);if(m)facts.push({term:m[1].trim(),def:m[2].trim(),src:line});let m2=line.match(/\b([A-Za-z][\w-]{3,})\s+(?:is|are|helps|allows|causes|produces|converts|contains|stores|controls|carries out)\s+(.{8,})/i);if(m2)facts.push({term:m2[1],def:m2[2].trim(),src:line})}return [...new Map(facts.map(x=>[x.term.toLowerCase(),x])).values()]}
+function quizFromNotes(text,n,type,diff){let lines=split(text),facts=conceptFacts(text),pool=[],push=x=>x&&x.q&&x.a!==undefined&&pool.push(x),terms=[...new Set(facts.map(f=>f.term).concat(words(text)))].filter(x=>x.length>3);
+for(let f of facts){push({ty:'mcq',q:'What does **'+f.term+'** mean or do?',a:f.def,o:[],why:'Your notes say: '+f.term+' '+f.def});push({ty:'short',q:'In your own words, explain **'+f.term+'**.',a:f.def,why:'A strong answer should include: '+f.def});push({ty:'fill',q:'_____ '+f.def.replace(/^[a-z-]+\s/i,''),a:f.term,why:'The missing key term is '+f.term+'.'});push({ty:'tf',q:'True or False: **'+f.term+'** is described in the notes as '+f.def+'.',a:'true',why:'This matches the supplied notes.'});push({ty:'tf',q:'True or False: **'+f.term+'** is unrelated to '+f.def+'.',a:'false',why:'The notes state that relationship.'})}
+for(let line of lines){let m=line.match(/(.{3,})\s+(?:causes|leads to|results in|produces|allows|helps)\s+(.{4,})/i);if(m)push({ty:'short',q:'What relationship does the note describe between **'+m[1].trim()+'** and **'+m[2].trim()+'**?',a:m[2].trim(),why:'The note states: '+m[1].trim()+' '+m[2].trim()+'.'});let c=line.indexOf(':');if(c>3){let head=line.slice(0,c).trim(),items=line.slice(c+1).split(/,|;|\band\b/i).map(x=>x.trim()).filter(x=>x.length>2);if(items.length>=2)push({ty:'short',q:'List two items mentioned under **'+head+'**.',a:items.slice(0,2).join(', '),why:'Your notes list: '+items.join(', ')})}}
+for(let item of pool.filter(x=>x.ty==='mcq')){let ds=terms.filter(t=>t.toLowerCase()!==String(item.a).toLowerCase()).sort(()=>Math.random()-.5).slice(0,3);item.o=[item.a,...ds];while(item.o.length<4)item.o.push('Not stated in the notes');item.o.sort(()=>Math.random()-.5)}
+if(diff==='Hard'||diff==='Expert')for(let f of facts)push({ty:'mcq',q:'Which statement is best supported by the notes about **'+f.term+'**?',a:f.def,o:[f.def,'It is mainly associated with '+(terms[0]||'another topic')+'.','The notes give no information about it.','It has the opposite function described in the notes.'],why:'The exact description appears in the notes.'});
+let result=[],types=type==='mixed'?['mcq','tf','short','fill']:[type];for(let round=0;result.length<n&&round<30;round++)for(let t of types){let cs=pool.filter(x=>x.ty===t&&!result.some(y=>y.q===x.q));if(cs.length)result.push(cs[round%cs.length]);if(result.length>=n)break}for(let x of pool)if(result.length<n&&!result.some(y=>y.q===x.q))result.push(x);return result.slice(0,n)}
+async function aiQuizFromNotes(text,n,type,diff){if(!localEngine)return null;const prompt=`Create ${n} distinct study questions from these notes. Difficulty: ${diff}. Type: ${type}. Use only information in the notes. Return ONLY valid JSON array. Each object must have ty (mcq/tf/short/fill), q, a, why, and o for mcq. Never repeat a question. NOTES:
+${text.slice(0,14000)}`;const r=await localEngine.chat.completions.create({messages:[{role:'system',content:'You are a careful quiz generator. Return valid JSON only.'},{role:'user',content:prompt}],temperature:.55,max_tokens:1800});let raw=r.choices?.[0]?.message?.content||'';raw=raw.replace(/^```json|```$/g,'').trim();try{let a=JSON.parse(raw);if(Array.isArray(a)){a=a.filter(x=>x.q&&x.a).map(x=>({...x,ty:['mcq','tf','short','fill'].includes(x.ty)?x.ty:'short'}));if(a.length)return a.slice(0,n)}}catch(e){}return null}
+$('#make').onclick=async()=>{let s=$('#source').value.trim();if(!s)return toast('Add study material');let n=+$('#count').value,t=$('#type').value,d=$('#difficulty').value;$('#make').disabled=true;$('#make').textContent=localEngine?'AI is reading your notes…':'Building questions…';let items=null;if(localEngine){try{items=await aiQuizFromNotes(s,n,t,d)}catch(e){items=null}}if(!items)items=quizFromNotes(s,n,t,d);$('#make').disabled=false;$('#make').textContent='Create Quiz ✦';if(!items.length)return toast('Add more detailed notes');quiz={items,i:0,score:0};renderQ();hist('Quiz created',items.length+' unique questions from notes')};
+function renderQ(){let a=quiz.items[quiz.i];if(!a){$('#quizArea').innerHTML='<div class="card"><h2>Quiz complete 🎉</h2><p>Score: <b>'+quiz.score+'/'+quiz.items.length+'</b></p><p class="muted">Questions were generated from different facts, definitions and relationships in your notes.</p></div>';D.done++;D.answered+=quiz.items.length;D.correct+=quiz.score;save();hist('Quiz completed',quiz.score+'/'+quiz.items.length);return}let h='<div class="card"><div class="row space"><span class="pill">Question '+(quiz.i+1)+' / '+quiz.items.length+'</span><span class="pill">'+esc($('#difficulty').value)+'</span></div><div class="progress" style="margin-top:10px"><i style="width:'+(quiz.i/quiz.items.length*100)+'%"></i></div><h3>'+md(a.q)+'</h3>';if(a.ty==='mcq')h+='<div class="answers">'+a.o.map(x=>'<button class="answer" data-a="'+esc(x)+'">'+esc(x)+'</button>').join('')+'</div>';else if(a.ty==='tf')h+='<div class="answers"><button class="answer" data-a="true">True</button><button class="answer" data-a="false">False</button></div>';else h+='<textarea id="short" rows="5" placeholder="Type your answer..."></textarea><button class="primary" id="check" style="margin-top:8px">Check answer</button>';h+='<div id="fb" style="margin-top:12px"></div></div>';$('#quizArea').innerHTML=h;$$('.answer').forEach(b=>b.onclick=()=>grade(b.dataset.a));$('#check')?.addEventListener('click',()=>grade($('#short').value))}
+function grade(ans){let a=quiz.items[quiz.i],norm=x=>String(x).toLowerCase().replace(/[^a-z0-9\s]/g,' ').replace(/\s+/g,' ').trim(),ok;if(a.ty==='short'){let expected=words(a.a).filter(w=>w.length>4),got=norm(ans);ok=expected.length?expected.slice(0,Math.min(4,expected.length)).filter(w=>got.includes(w)).length>=Math.min(2,expected.length):got.length>12}else ok=norm(ans)===norm(a.a);if(ok)quiz.score++;$('#fb').innerHTML='<div class="card"><b>'+(ok?'✓ Correct!':'Not quite.')+'</b><p>'+esc(a.why)+'</p><p><b>Expected:</b> '+esc(a.a)+'</p><button class="primary" onclick="quiz.i++;renderQ()">'+(quiz.i===quiz.items.length-1?'Finish':'Next')+' →</button></div>'}
+$('#genCards').onclick=()=>{let s=$('#cardSource').value.trim();if(!s)return toast('Add study notes');let a=split(s);if(!a.length)a=[s];D.cards=a.slice(0,30).map(x=>({front:'What is the key idea here?',back:x,known:false}));cardI=0;save();hist('Flashcards created',D.cards.length+' cards')};function renderCards(){if(!D.cards.length){$('#flashArea').innerHTML='<div class="empty">No cards yet. Add notes above.</div>';return}let x=D.cards[cardI];$('#flashArea').innerHTML='<div class="flash" id="flash"><div class="flashin"><div class="face">'+esc(x.front)+'</div><div class="face back">'+esc(x.back)+'</div></div></div><div class="toolbar" style="justify-content:center"><button class="secondary" onclick="rate(false)">× Review</button><button class="secondary" onclick="$(\'#flash\').classList.toggle(\'flip\')">↻ Flip</button><button class="secondary" onclick="shuffle()">⇄ Shuffle</button><button class="primary" onclick="rate(true)">✓ I know it</button></div><p class="muted" style="text-align:center">'+(cardI+1)+' / '+D.cards.length+'</p>'}function rate(k){D.cards[cardI].known=k;cardI=(cardI+1)%D.cards.length;save()}function shuffle(){D.cards.sort(()=>Math.random()-.5);cardI=0;save()}
+$('#saveNote').onclick=()=>{let b=$('#noteBody').value.trim();if(!b)return toast('Write a note first');D.notes.unshift({id:Date.now(),title:$('#noteTitle').value.trim()||'Untitled',body:b,time:new Date().toLocaleString()});save();toast('Note saved')};$('#noteQuiz').onclick=()=>{$('#source').value=$('#noteBody').value;show('quiz')};$('#noteCards').onclick=()=>{$('#cardSource').value=$('#noteBody').value;show('cards')};$('#noteSearch').oninput=renderNotes;function renderNotes(){let q=$('#noteSearch').value.toLowerCase(),n=D.notes.filter(x=>(x.title+x.body).toLowerCase().includes(q));$('#noteList').innerHTML=n.length?n.map(x=>'<div class="card" style="margin-bottom:8px;box-shadow:none"><div class="row space"><b>'+esc(x.title)+'</b><button class="icon" onclick="delNote('+x.id+')">×</button></div><p class="muted">'+esc(x.body.slice(0,180))+'…</p><button class="secondary" onclick="loadNote('+x.id+')">Open</button></div>').join(''):'<div class="empty">No notes yet.</div>'}function delNote(id){D.notes=D.notes.filter(x=>x.id!==id);save()}function loadNote(id){let x=D.notes.find(x=>x.id===id);$('#noteTitle').value=x.title;$('#noteBody').value=x.body}
+function render(){document.body.classList.toggle('dark',D.theme==='dark');if($('#localModelSelect'))$('#localModelSelect').value=localModel;$('#theme').textContent=D.theme==='dark'?'☀ Light mode':'☾ Dark mode';$('#solved').textContent=D.solved;$('#done').textContent=D.done;$('#cardCount').textContent=D.cards.length;$('#acc').textContent=D.answered?Math.round(D.correct/D.answered*100)+'%':'—';$('#status').textContent=D.endpoint?'AI endpoint connected':'Local mode';$('#recent').innerHTML=D.history.length?D.history.slice(0,6).map(x=>'<div style="padding:8px 0;border-bottom:1px solid var(--l)"><b>'+esc(x.t)+'</b> · '+esc(x.x)+'</div>').join(''):'<div class="empty">No activity yet.</div>';$('#historyList').innerHTML=D.history.length?D.history.map(x=>'<div style="padding:12px 0;border-bottom:1px solid var(--l)"><b>'+esc(x.t)+'</b> — '+esc(x.x)+'<div class="muted">'+esc(x.time)+'</div></div>').join(''):'<div class="empty">Your activity will appear here.</div>';renderNotes();renderCards()}
+
+let googleInitialized=false;
+function openGoogleStatus(){
+  const u=D.googleUser;
+  $('#googleStatus').textContent=u ? `Signed in as ${u.name||'Google user'}${u.email?' · '+u.email:''}` : 'Not signed in';
+  $('#googleSignOut').style.display=u?'inline-flex':'none';
+}
+function saveGoogleConfig(){
+  D.googleClientId=$('#googleClientId').value.trim();
+  save();
+  if(D.googleClientId) initGoogle();
+  toast(D.googleClientId?'Google configuration saved':'Enter a Google Client ID');
+}
+function initGoogle(){
+  if(!D.googleClientId){ openSetup(); toast('Google Sign-In needs a Web Client ID. No Google API key is required.'); return; }
+  if(!window.google?.accounts?.id){
+    toast('Google Sign-In is still loading — try again in a moment');
+    return;
+  }
+  google.accounts.id.initialize({
+    client_id: D.googleClientId,
+    callback: handleGoogleCredential,
+    auto_select: false,
+    cancel_on_tap_outside: true
+  });
+  $('#googleButton').innerHTML='';
+  google.accounts.id.renderButton($('#googleButton'), {
+    theme: D.theme==='dark'?'filled_black':'outline',
+    size:'large',
+    shape:'pill',
+    text:'continue_with',
+    width:300,
+    use_fedcm_for_button:true
+  });
+  googleInitialized=true;
+  $('#googleSetupHint').textContent='Google Sign-In is ready. Click the Google button to choose your account.';
+}
+function handleGoogleCredential(response){
+  try{
+    const payload=decodeJwt(response.credential);
+    D.googleUser={
+      name:payload.name||'Google user',
+      email:payload.email||'',
+      picture:payload.picture||'',
+      sub:payload.sub||'',
+      signedInAt:new Date().toISOString()
+    };
+    D.name=D.googleUser.name||D.name;
+    save();
+    openGoogleStatus();
+    toast('Google sign-in successful');
+  }catch(e){
+    toast('Google sign-in response could not be read');
+  }
+}
+function decodeJwt(token){
+  const part=token.split('.')[1];
+  if(!part)throw Error('Invalid credential');
+  const b64=part.replace(/-/g,'+').replace(/_/g,'/');
+  const json=decodeURIComponent(atob(b64).split('').map(c=>'%'+('00'+c.charCodeAt(0).toString(16)).slice(-2)).join(''));
+  return JSON.parse(json);
+}
+$('#googleLaunch').onclick=()=>{if(!D.googleClientId){openSetup();setTimeout(()=>$('#googleClientId')?.focus(),150);return;}initGoogle();setTimeout(()=>$('#googleButton')?.scrollIntoView({behavior:'smooth',block:'center'}),100)};
+function googleSignOut(){
+  if(window.google?.accounts?.id) google.accounts.id.disableAutoSelect();
+  D.googleUser=null;
+  save();
+  openGoogleStatus();
+  if($('#googleButton'))$('#googleButton').innerHTML='';
+  if(D.googleClientId) initGoogle();
+  toast('Signed out');
+}
+window.addEventListener('load',()=>{if(D.googleClientId&&window.google?.accounts?.id)setTimeout(initGoogle,150)});
+function openSetup(){$('#endpoint').value=D.endpoint||'';$('#displayName').value=D.name||'Student';$('#googleClientId').value=D.googleClientId||'';openGoogleStatus();$('#modal').classList.add('show');if(D.googleClientId)setTimeout(initGoogle,250)}function closeModal(){$('#modal').classList.remove('show')}function saveSetup(){D.endpoint=$('#endpoint').value.trim();D.name=$('#displayName').value.trim()||'Student';D.googleClientId=$('#googleClientId').value.trim();save();if(D.googleClientId)setTimeout(initGoogle,100);$('#modal').classList.remove('show');toast('Settings saved')}async function testEndpoint(){let u=$('#endpoint').value.trim();if(!u)return toast('Enter an endpoint');try{let r=await fetch(u,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:'Reply OK',mode:'test'})});toast(r.ok?'Endpoint connected':'Endpoint returned '+r.status)}catch(e){toast('Could not reach endpoint')}}$('#setup').onclick=openSetup;render();
+</script></body></html>
